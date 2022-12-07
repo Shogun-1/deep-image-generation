@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+  email_bot:
+    build:
+      dockerfile: ./email_bot/Dockerfile
+    container_name: email_bot
+    restart: unless-stopped
+    command: python ./imap.py
+      
+  telegram_bot:
+    build:
+      dockerfile: ./telegram_bot/Dockerfile
+    container_name: telegram_bot
+    restart: unless-stopped
+    command: python -u ./main.py
