@@ -62,3 +62,4 @@ you will get a notification letter on what you should send to the bot.
 ## Closing notes
 Thanks for using the bots!  
 I can start the servers for you, if needed, please feel free to ping me and let me know.  
+You can use images from [here](telegram_bot/images) for testing purposes.  
