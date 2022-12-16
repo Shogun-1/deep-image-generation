@@ -34,7 +34,9 @@ The bot supports all the tasks described above.
 
 ## Instructions on how to use each bot
 ### Starting servers
-Before starting communication with bots, you need to launch the servers. Use `docker` for this.
+Before starting communication with bots, you need to launch the servers. Use `docker` for this.  
+- **IMPORTANT**: please update your docker and docker-compose to the latest versions to ensure correct work of the application.
+- Using docker version `4.15` or above highly recommended.
 1. Just type the following command: `docker-compose up --build`.
 2. Wait for both servers (Telegram bot and email bot) to boot up.
 Check logs for information when both servers are ready. 
