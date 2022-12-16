@@ -6,20 +6,21 @@ import logging
 from email.utils import parseaddr
 import os
 import time
+import configparser
 
 from smtp import SMTPSender
 from NST import NSTModel
 
-EMAIL = "bot.power@mail.ru"
-PASS = "5SQvvjNkw7R5Gepw6M5T"
-IMAP_SERVER = "imap.mail.ru"
-IMAP_PORT = 993
-SMTP_SERVER = "smtp.mail.ru"
-SMTP_PORT = 465
+config = configparser.ConfigParser()
+config.read("config.ini")
+EMAIL = config["email"]["EMAIL"]
+PASS = config["email"]["PASS"]
+IMAP_SERVER = config["imap"]["SERVER"]
+IMAP_PORT = int(config["imap"]["PORT"])
+SMTP_SERVER = config["smtp"]["SERVER"]
+SMTP_PORT = int(config["smtp"]["PORT"])
 
 IMG_FOLDER = "images"
-if not os.path.isdir(IMG_FOLDER):
-    os.mkdir(IMG_FOLDER)
 
 logging.basicConfig(level=logging.INFO)
 
@@ -35,6 +36,9 @@ imap = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
 imap.login(EMAIL, PASS)
 
 if __name__ == '__main__':
+    if not os.path.isdir(IMG_FOLDER):
+        os.mkdir(IMG_FOLDER)
+
     while True:
         imap.select("INBOX")
         response_code, messages = imap.search(None, "(Unseen)")

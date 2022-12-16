@@ -2,6 +2,7 @@
 
 import logging
 from io import BytesIO
+import configparser
 
 from aiogram import Bot, Dispatcher, executor, types
 
@@ -9,7 +10,9 @@ import NST
 from gans.cyclegan import CycleGAN, CYCLEGAN_TASK_LIST
 from gans.pix2pix import Pix2Pix, PIX2PIX_TASK_LIST
 
-API_TOKEN = '1505628465:AAF3lLnq58KjaACimrMCJWAoEDs57DpAnpQ'
+config = configparser.ConfigParser()
+config.read("config.ini")
+API_TOKEN = config["telegram"]["API_TOKEN"]
 VERSION = 1.0
 
 # Configure logging

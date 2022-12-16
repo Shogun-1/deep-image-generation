@@ -1,12 +1,15 @@
 import smtplib
 import ssl
+import configparser
 
 from email.message import EmailMessage
 
-SERVER = "smtp.mail.ru"
-PORT = 465
-EMAIL = "bot.power@mail.ru"
-PASS = "5SQvvjNkw7R5Gepw6M5T"
+config = configparser.ConfigParser()
+config.read("config.ini")
+SERVER = config["smtp"]["SERVER"]
+PORT = int(config["smtp"]["PORT"])
+EMAIL = config["email"]["EMAIL"]
+PASS = config["email"]["PASS"]
 
 
 class SMTPSender:

@@ -59,7 +59,25 @@ The first start-up will be much longer than subsequent ones. In most cases, it t
 It will contain your generated image. In case you haven't sent 2 images as required, 
 you will get a notification letter on what you should send to the bot.
 
+## How to configure and start your own bot
+There are some guidelines that can be helpful if you want to start your own bot.
+### Email bot
+- For email bot, you need to create a new inbox address using any domain you like (i.e., gmail).  
+- Then you need to find out host addresses and ports for SMTP (sending emails) and IMAP (reading emails)
+protocols for your email provider. You can use this [link](https://www.systoolsgroup.com/imap/) to find them out.
+- After you found it, just update [config file](/config.ini):
+    - Use your full email address and password (usually you need to use a special App Password for email as the main password will not work,
+please look [here (for Gmail)](https://support.google.com/accounts/answer/185833?hl=en#zippy=)).
+    - Don't forget to update your IMAP and SMTP hosts and ports in the config.
+- You're ready to go!
+
+### Telegram bot
+- Here, you need to create your own bot for Telegram.
+- For example, you can use [this guide](https://sendpulse.com/knowledge-base/chatbot/telegram/create-telegram-chatbot) (check only first step, it would be enough).
+- After you created the bot, you need to get its token and copy the value to [config file](/config.ini).
+- Everything is set up now!
+
+
 ## Closing notes
-Thanks for using the bots!  
-I can start the servers for you, if needed, please feel free to ping me and let me know.  
-You can use images from [here](telegram_bot/images) for testing purposes.  
+Thanks for using the bots!   
+You can use images from [here](images) for exploration and testing purposes.  

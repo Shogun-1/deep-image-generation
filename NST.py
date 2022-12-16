@@ -128,7 +128,7 @@ class Normalization(nn.Module):
 content_layers_default = ['conv_4']
 style_layers_default = ['conv_1', 'conv_2', 'conv_3', 'conv_4', 'conv_5']
 
-convnet = models.vgg19(pretrained=True).features.to(DEVICE).eval()
+convnet = models.vgg19(weights='IMAGENET1K_V1').features.to(DEVICE).eval()
 
 
 class NSTModel:
